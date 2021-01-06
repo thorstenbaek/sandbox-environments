@@ -1,0 +1,13 @@
+{
+    "environment": "{{environment}}.dips-ehr-app.api.dips.no",
+    "settings":             
+        {
+            "FhirServiceUri" : "https://RELEASE-NAME.dips.fhir.service.DOMAIN",
+            "SecurityServiceUri" : "https://RELEASE-NAME.dips-ehr-security.DOMAIN",
+            "SmartOnFhirApps" : 
+            [
+                {"name": "Growth Chart FHIR", "url": "https://examples.smarthealthit.org/growth-chart-app/launch.html"},
+                {"name": "NAV Pleiepenger", "url": "https://RELEASE-NAME.nav-pleiepenger.DOMAIN"}
+            ]
+        }         
+}

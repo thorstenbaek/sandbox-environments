@@ -20,4 +20,4 @@ This is the Kubernetes manifest describing all the nodes in the environment clus
 The dips-configuration-service reads this json and all values are available to consumers of this service.
 
 TEST: 2021.04.15 Trigging push to Git repo and WebHook
-TEST: 2021.04.16 Trigging yet another push
+TEST: 2021.04.16 Trigging yet another push - and again.

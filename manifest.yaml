@@ -1,3 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: RELEASE-NAME
 ---
 # Source: SandBox/charts/dips-ehr-app/templates/service.yaml
 apiVersion: v1

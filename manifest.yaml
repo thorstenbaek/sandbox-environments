@@ -717,15 +717,17 @@ spec:
         - name: dips-fhir-service2
           securityContext:
             {}
-          image: "thorstenbaek/dips.fhir.service:v1.0.0.20"
+          image: "thorstenbaek/dips.fhir.service:v1.0.1.0"
           imagePullPolicy: Always
           env:            
             - name: CONFIGURATION_SERVICE_URI
-              value: "RELEASE-NAME-dips-ehr-configuration"
+              value: "https://raw.githubusercontent.com/thorstenbaek/sandbox-environments/RELEASE-FOLDER/"
             - name: CONNECTION_STRING
               value: "server=RELEASE-NAME-postgres-postgresql;database=fhirbase;user id=postgres;password=postgres;"
-            - name: ENVIRONMENT
-              value: "RELEASE-NAME.dips-ehr-app.DOMAIN"
+            - name: RELEASE_NAME
+              value: RELEASE-NAME
+            - name: HOST_NAME
+              value: DOMAIN
           ports:
             - name: http              
               containerPort: 80       

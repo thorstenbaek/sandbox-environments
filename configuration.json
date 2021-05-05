@@ -11,7 +11,7 @@
                 "context": "document", 
                 "mimetype": "application/markdown",
                 "name": "EHR Notes", 
-                "url": "https://RELEASE-NAME.dips-ehr-notes.DOMAIN/"
+                "url": "http://localhost:8080"
             },
             {
                 "context": "document", 

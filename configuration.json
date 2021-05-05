@@ -24,6 +24,12 @@
                 "mimetype": "application/pdf",
                 "name": "PDF Viewer", 
                 "url": "https://RELEASE-NAME.dips-ehr-pdf.DOMAIN/"
+            },
+            {
+                "context": "document", 
+                "mimetype": "application/tiff",
+                "name": "TIFF Viewer", 
+                "url": "https://RELEASE-NAME.dips-ehr-tiff.DOMAIN/"
             }
         ]
     }             

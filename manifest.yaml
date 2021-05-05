@@ -526,8 +526,11 @@ spec:
         - name: dips-ehr-notes
           securityContext:
             {}
-          image: "thorstenbaek/dips-ehr-notes:v1.0.0.5"
+          image: "thorstenbaek/dips-ehr-notes:v1.0.1.0"
           imagePullPolicy: Always
+          env:            
+            - name: CONFIG_URL
+              value: "https://raw.githubusercontent.com/thorstenbaek/sandbox-environments/RELEASE-FOLDER/"
           ports:
             - name: http
               containerPort: 80

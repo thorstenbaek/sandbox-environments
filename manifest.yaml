@@ -577,7 +577,7 @@ spec:
         - name: dips-ehr-notes-session-api
           securityContext:
             {}
-          image: "thorstenbaek/dips-ehr-notes-session-api:v1.0.0.9"
+          image: "thorstenbaek/dips-ehr-notes-session-api:v1.0.1.0"
           imagePullPolicy: Always
           ports:
             - name: http

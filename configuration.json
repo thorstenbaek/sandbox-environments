@@ -1,12 +1,12 @@
 {
     "settings":             
     {
-        "FhirServiceUri": "https://RELEASE-NAME.dips.fhir.service.DOMAIN",
-        "SecurityServiceUri": "https://RELEASE-NAME.dips-ehr-security.DOMAIN",
+        "FhirServiceUri": "https://dev-tst.dips.fhir.service.api.dips.no",
+        "SecurityServiceUri": "https://dev-tst.dips-ehr-security.api.dips.no",
         "SmartOnFhirApps": 
         [
             {"context": "patient", "name": "Growth Chart FHIR", "url": "https://examples.smarthealthit.org/growth-chart-app/launch.html"},
-            {"context": "patient", "name": "NAV Pleiepenger", "url": "https://RELEASE-NAME.nav-pleiepenger.DOMAIN/"},                    
+            {"context": "patient", "name": "NAV Pleiepenger", "url": "https://dev-tst.nav-pleiepenger.api.dips.no/"},                    
             {
                 "context": "document", 
                 "mimetype": "application/markdown",
@@ -17,13 +17,13 @@
                 "context": "document", 
                 "mimetype": "image/jpeg",
                 "name": "Image Viewer", 
-                "url": "https://RELEASE-NAME.dips-ehr-images.DOMAIN/"
+                "url": "https://dev-tst.dips-ehr-images.api.dips.no/"
             },
             {
                 "context": "document", 
                 "mimetype": "application/pdf",
                 "name": "PDF Viewer", 
-                "url": "https://RELEASE-NAME.dips-ehr-pdf.DOMAIN/"
+                "url": "https://dev-tst.dips-ehr-pdf.api.dips.no/"
             }
         ]
     }             

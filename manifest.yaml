@@ -376,7 +376,7 @@ spec:
         - name: dips-ehr-app
           securityContext:
             {}
-          image: "thorstenbaek/dips-ehr-app:v1.0.1.7"
+          image: "thorstenbaek/dips-ehr-app:v1.0.1.8"
           env:
           - name: CONFIG_URL
             value: https://raw.githubusercontent.com/thorstenbaek/sandbox-environments/RELEASE-FOLDER/

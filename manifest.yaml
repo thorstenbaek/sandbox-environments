@@ -253,6 +253,46 @@ spec:
     app.kubernetes.io/name: dips-ehr-notes-session-api
     app.kubernetes.io/instance: RELEASE-NAME
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: RELEASE-NAME-ask-nlp-robot
+  namespace: RELEASE-NAME
+  labels:
+    app.kubernetes.io/name: ask-nlp-robot
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/version: "1.0.0"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: ask-nlp-robot
+    app.kubernetes.io/instance: RELEASE-NAME    
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: RELEASE-NAME-normedterm-nlp-robot
+  namespace: RELEASE-NAME
+  labels:
+    app.kubernetes.io/name: normedterm-nlp-robot
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/version: "1.0.0"
+spec: 
+  type: ClusterIP
+  ports: 
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector: 
+    app.kubernetes.io/name: normedterm-nlp-robot
+    app.kubernetes.io/instance: RELEASE-NAME
+---      
 # Source: SandBox/charts/dips-ehr-pdf/templates/service.yaml
 apiVersion: v1
 kind: Service
@@ -576,6 +616,9 @@ spec:
             {}
           image: "thorstenbaek/dips-ehr-notes-session-api:v1.0.0.9"
           imagePullPolicy: Always
+          env:            
+            - name: ROBOTS
+              value: "here comes the robots"
           ports:
             - name: http
               containerPort: 80
@@ -590,6 +633,82 @@ spec:
               port: http
           resources:
             {}
+---
+# Source: SandBox/charts/ask-nlp-robot/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: RELEASE-NAME-ask-nlp-robot
+  namespace: RELEASE-NAME
+  labels:    
+    app.kubernetes.io/name: ask-nlp-robot
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/version: "1.16.0"    
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ask-nlp-robot
+      app.kubernetes.io/instance: RELEASE-NAME
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ask-nlp-robot
+        app.kubernetes.io/instance: RELEASE-NAME
+    spec:
+      serviceAccountName: default
+      securityContext:
+        {}
+      containers:
+        - name: ask-nlp-robot
+          securityContext:
+            {}
+          image: "thorstenbaek/ask-nlp-robot:v1.0.0.0"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP          
+          resources:
+            {}            
+---
+# Source: SandBox/charts/normedterm-nlp-robot/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: RELEASE-NAME-normedterm-nlp-robot
+  namespace: RELEASE-NAME
+  labels:    
+    app.kubernetes.io/name: normedterm-nlp-robot
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/version: "1.16.0"    
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: normedterm-nlp-robot
+      app.kubernetes.io/instance: RELEASE-NAME
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: normedterm-nlp-robot
+        app.kubernetes.io/instance: RELEASE-NAME
+    spec:
+      serviceAccountName: default
+      securityContext:
+        {}
+      containers:
+        - name: normedterm-nlp-robot
+          securityContext:
+            {}
+          image: "thorstenbaek/normedterm-nlp-robot:v1.0.0.0"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP          
+          resources:
+            {}                        
 ---
 # Source: SandBox/charts/dips-ehr-pdf/templates/deployment.yaml
 apiVersion: apps/v1

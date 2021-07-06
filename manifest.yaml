@@ -614,11 +614,11 @@ spec:
         - name: dips-ehr-notes-session-api
           securityContext:
             {}
-          image: "thorstenbaek/dips-ehr-notes-session-api:v1.0.1.1"
+          image: thorstenbaek/dips-ehr-notes-session-api:v1.0.1.2
           imagePullPolicy: Always
           env:            
             - name: ROBOTS
-              value: RELEASE-NAME-ask-nlp-robot
+              value: [{"DIPS Ask", "RELEASE-NAME-ask-nlp-robot"}, {"NormedTerm", "RELEASE-NAME-normedterm-nlp-robot"}]
           ports:
             - name: http
               containerPort: 80

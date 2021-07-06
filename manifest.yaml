@@ -618,8 +618,7 @@ spec:
           imagePullPolicy: Always
           env:            
             - name: ROBOTS
-              value: |
-              {"foo":"bar"}
+              value: ["foo","bar"]
           ports:
             - name: http
               containerPort: 80

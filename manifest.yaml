@@ -618,7 +618,8 @@ spec:
           imagePullPolicy: Always
           env:            
             - name: ROBOTS
-              value: [{"DIPS Ask", "RELEASE-NAME-ask-nlp-robot"}, {"NormedTerm", "RELEASE-NAME-normedterm-nlp-robot"}]
+              value: |
+              [{"DIPS Ask", "RELEASE-NAME-ask-nlp-robot"}, {"NormedTerm", "RELEASE-NAME-normedterm-nlp-robot"}]
           ports:
             - name: http
               containerPort: 80

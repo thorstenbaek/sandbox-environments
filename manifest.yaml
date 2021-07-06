@@ -618,7 +618,7 @@ spec:
           imagePullPolicy: Always
           env:            
             - name: ROBOTS
-              value: "foobar"
+              value: foobar
           ports:
             - name: http
               containerPort: 80

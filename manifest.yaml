@@ -618,7 +618,8 @@ spec:
           imagePullPolicy: Always
           env:            
             - name: ROBOTS
-              value: RELEASE-NAME-ask-nlp-robot
+              value: |
+              {"foo":"bar"}
           ports:
             - name: http
               containerPort: 80

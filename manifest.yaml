@@ -3,6 +3,7 @@ kind: Namespace
 metadata:
     name: RELEASE-NAME
 ---
+
 # Source: postgresql/templates/service.yaml
 apiVersion: v1
 kind: Service

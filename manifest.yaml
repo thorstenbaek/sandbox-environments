@@ -583,6 +583,15 @@ spec:
           resources:
             {}
 ---
+apiVersion: apps/v1
+kind: ConfigMap
+metadata:
+  name: robots-configmap
+data:
+  robots: |
+    ask-nlp-robot=RELEASE-NAME-ask-nlp-robot
+    normedterm-nlp-robot=RELEASE-NAME-normedterm-nlp-robot
+---
 # Source: SandBox/charts/dips-ehr-notes-session-api/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -614,11 +623,14 @@ spec:
         - name: dips-ehr-notes-session-api
           securityContext:
             {}
-          image: thorstenbaek/dips-ehr-notes-session-api:v1.0.1.5
+          image: thorstenbaek/dips-ehr-notes-session-api:v1.0.1.6
           imagePullPolicy: Always
           env:            
             - name: ROBOTS
-              value: RELEASE-NAME-ask-nlp-robot
+              valueFrom:
+                configMapKeyRef:
+                  name: robots-configmap
+                  key: robots
           ports:
             - name: http
               containerPort: 80

@@ -630,8 +630,7 @@ spec:
             - name: ROBOTS
               valueFrom:
                 configMapKeyRef:
-                  name: robots-configmap
-                  namespace: RELEASE-NAME
+                  name: robots-configmap                
                   key: robots
           ports:
             - name: http

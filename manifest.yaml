@@ -587,6 +587,7 @@ apiVersion: apps/v1
 kind: ConfigMap
 metadata:
   name: robots-configmap
+  namespace: RELEASE-NAME
 data:
   robots: |
     ask-nlp-robot=RELEASE-NAME-ask-nlp-robot
@@ -630,6 +631,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: robots-configmap
+                  namespace: RELEASE-NAME
                   key: robots
           ports:
             - name: http

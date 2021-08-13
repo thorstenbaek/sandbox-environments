@@ -11,7 +11,7 @@
                 "context": "document", 
                 "mimetype": "application/markdown",
                 "name": "EHR Notes", 
-                "url": "http://localhost:8080"
+                "url": "https://dev-tst.dips-ehr-notes.api.dips.no/"
             },
             {
                 "context": "document", 

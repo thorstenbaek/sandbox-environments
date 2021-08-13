@@ -624,7 +624,7 @@ spec:
         - name: dips-ehr-notes-session-api
           securityContext:
             {}
-          image: thorstenbaek/dips-ehr-notes-session-api:v1.0.1.11
+          image: thorstenbaek/dips-ehr-notes-session-api:v1.0.1.12
           imagePullPolicy: Always
           env:            
             - name: ROBOTS

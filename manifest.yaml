@@ -568,6 +568,9 @@ spec:
             {}
           image: "thorstenbaek/dips-ehr-notes-client:v1.0.1.4"
           imagePullPolicy: Always
+          env:
+            - name: CONFIG_URL
+            - value: https://raw.githubusercontent.com/thorstenbaek/sandbox-environments/RELEASE-NAME
           ports:
             - name: http
               containerPort: 80

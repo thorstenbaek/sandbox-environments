@@ -21,3 +21,5 @@ The dips-configuration-service reads this json and all values are available to c
 
 TEST: 2021.04.15 Trigging push to Git repo and WebHook
 TEST: 2021.04.16 Trigging yet another push - and again and again
+TEST: 2021.07.06 Trigging yet another push - and again and again
+

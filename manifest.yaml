@@ -566,7 +566,7 @@ spec:
         - name: dips-ehr-notes
           securityContext:
             {}
-          image: "thorstenbaek/dips-ehr-notes:v1.0.1.5"
+          image: "thorstenbaek/dips-ehr-notes-client:v1.0.1.5"
           imagePullPolicy: Always
           env:            
             - name: CONFIG_URL

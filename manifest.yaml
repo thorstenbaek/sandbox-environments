@@ -912,7 +912,7 @@ spec:
             {}
 ---
 # Source: SandBox/charts/dips-ehr-app/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-app
@@ -937,12 +937,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-app
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-app
+                port: 
+                  number: 80
 ---
 # Source: SandBox/charts/dips-ehr-configuration/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-configuration
@@ -967,12 +970,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-configuration
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-configuration
+                port: 
+                  number: 80  
 ---
 # Source: SandBox/charts/dips-ehr-images/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-images
@@ -997,12 +1003,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-images
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-images
+                port: 
+                  number: 80
 ---
 # Source: SandBox/charts/dips-ehr-notes/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-notes
@@ -1027,12 +1036,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-notes
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-notes
+                port: 
+                  number: 80
 ---
 # Source: SandBox/charts/dips-ehr-notes-session-api/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-notes-session-api
@@ -1045,7 +1057,7 @@ metadata:
     app.kubernetes.io/managed-by: Helm
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-    nginx.ingress.kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/websocket-services: RELEASE-NAME-dips-ehr-notes-session-api
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/enable-cors: "true"
@@ -1061,12 +1073,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-notes-session-api
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-notes-session-api
+                port: 
+                  number: 80
 ---
 # Source: SandBox/charts/dips-ehr-pdf/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-pdf
@@ -1091,12 +1106,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-pdf
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-pdf
+                port: 
+                  number: 80
 ---
 # Source: SandBox/charts/dips-ehr-security/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-security
@@ -1121,12 +1139,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-security
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-security
+                port: 
+                  number: 80    
 ---
 # Source: SandBox/charts/dips-fhir-service2/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-fhir-service2
@@ -1151,12 +1172,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-fhir-service2
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-fhir-service2
+                port: 
+                  number: 80  
 ---
 # Source: SandBox/charts/nav-pleiepenger/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-nav-pleiepenger
@@ -1175,210 +1199,15 @@ spec:
   tls:
     - hosts:
         - "RELEASE-NAME.nav-pleiepenger.DOMAIN"
-      secretName: nav-pleiepenger-sandbox-tls
+      secretName: nav-pleiepenger-sandbox-tls     
   rules:
     - host: "RELEASE-NAME.nav-pleiepenger.DOMAIN"
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-nav-pleiepenger
-              servicePort: 80
----
-# Source: SandBox/charts/dips-ehr-app/templates/tests/test-connection.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "RELEASE-NAME-dips-ehr-app-test-connection"
-  namespace: RELEASE-NAME
-  labels:
-    helm.sh/chart: dips-ehr-app-0.1.0
-    app.kubernetes.io/name: dips-ehr-app
-    app.kubernetes.io/instance: RELEASE-NAME
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": test-success
-spec:
-  containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['RELEASE-NAME-dips-ehr-app:80']
-  restartPolicy: Never
----
-# Source: SandBox/charts/dips-ehr-configuration/templates/tests/test-connection.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "RELEASE-NAME-dips-ehr-configuration-test-connection"
-  namespace: RELEASE-NAME
-  labels:
-    helm.sh/chart: dips-ehr-configuration-0.1.0
-    app.kubernetes.io/name: dips-ehr-configuration
-    app.kubernetes.io/instance: RELEASE-NAME
-    app.kubernetes.io/version: "1.0.0"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": test-success
-spec:
-  containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['RELEASE-NAME-dips-ehr-configuration:80']
-  restartPolicy: Never
----
-# Source: SandBox/charts/dips-ehr-images/templates/tests/test-connection.yaml
-apiVersion: v1
-kind: Pod
-metadata:  
-  name: "RELEASE-NAME-dips-ehr-images-test-connection"
-  namespace: RELEASE-NAME
-  labels:
-    helm.sh/chart: dips-ehr-images-0.1.0
-    app.kubernetes.io/name: dips-ehr-images
-    app.kubernetes.io/instance: RELEASE-NAME
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": test-success
-spec:
-  containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['RELEASE-NAME-dips-ehr-images:80']
-  restartPolicy: Never
----
-# Source: SandBox/charts/dips-ehr-notes/templates/tests/test-connection.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "RELEASE-NAME-dips-ehr-notes-test-connection"
-  namespace: RELEASE-NAME
-  labels:
-    helm.sh/chart: dips-ehr-notes-0.1.0
-    app.kubernetes.io/name: dips-ehr-notes
-    app.kubernetes.io/instance: RELEASE-NAME
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": test-success
-spec:
-  containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['RELEASE-NAME-dips-ehr-notes:80']
-  restartPolicy: Never
----
-# Source: SandBox/charts/dips-ehr-notes-session-api/templates/tests/test-connection.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "RELEASE-NAME-dips-ehr-notes-session-api-test-connection"
-  namespace: RELEASE-NAME
-  labels:
-    helm.sh/chart: dips-ehr-notes-session-api-0.1.0
-    app.kubernetes.io/name: dips-ehr-notes-session-api
-    app.kubernetes.io/instance: RELEASE-NAME
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": test-success
-spec:
-  containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['RELEASE-NAME-dips-ehr-notes-session-api:80']
-  restartPolicy: Never
----
-# Source: SandBox/charts/dips-ehr-pdf/templates/tests/test-connection.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "RELEASE-NAME-dips-ehr-pdf-test-connection"
-  namespace: RELEASE-NAME
-  labels:
-    helm.sh/chart: dips-ehr-pdf-0.1.0
-    app.kubernetes.io/name: dips-ehr-pdf
-    app.kubernetes.io/instance: RELEASE-NAME
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": test-success
-spec:
-  containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['RELEASE-NAME-dips-ehr-pdf:80']
-  restartPolicy: Never
----
-# Source: SandBox/charts/dips-ehr-security/templates/tests/test-connection.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "RELEASE-NAME-dips-ehr-security-test-connection"
-  namespace: RELEASE-NAME
-  labels:
-    helm.sh/chart: dips-ehr-security-0.1.0
-    app.kubernetes.io/name: dips-ehr-security
-    app.kubernetes.io/instance: RELEASE-NAME
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": test-success
-spec:
-  containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['RELEASE-NAME-dips-ehr-security:80']
-  restartPolicy: Never
----
-# Source: SandBox/charts/dips-fhir-service2/templates/tests/test-connection.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "RELEASE-NAME-dips-fhir-service2-test-connection"
-  namespace: RELEASE-NAME
-  labels:
-    helm.sh/chart: dips-fhir-service2-0.1.0
-    app.kubernetes.io/name: dips-fhir-service2
-    app.kubernetes.io/instance: RELEASE-NAME
-    app.kubernetes.io/version: "1.0.0"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": test-success
-spec:
-  containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['RELEASE-NAME-dips-fhir-service2:80']
-  restartPolicy: Never
----
-# Source: SandBox/charts/nav-pleiepenger/templates/tests/test-connection.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: "RELEASE-NAME-nav-pleiepenger-test-connection"
-  namespace: RELEASE-NAME
-  labels:
-    helm.sh/chart: nav-pleiepenger-0.1.0
-    app.kubernetes.io/name: nav-pleiepenger
-    app.kubernetes.io/instance: RELEASE-NAME
-    app.kubernetes.io/version: "1.16.0"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": test
-spec:
-  containers:
-    - name: wget
-      image: busybox
-      command: ['wget']
-      args: ['RELEASE-NAME-nav-pleiepenger:80']
-  restartPolicy: Never
+              service:
+                name: RELEASE-NAME-nav-pleiepenger
+                port: 
+                  number: 80  

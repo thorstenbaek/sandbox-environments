@@ -912,7 +912,7 @@ spec:
             {}
 ---
 # Source: SandBox/charts/dips-ehr-app/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-app
@@ -937,12 +937,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-app
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-app
+                port: 
+                  number: 80
 ---
 # Source: SandBox/charts/dips-ehr-configuration/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-configuration
@@ -967,12 +970,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-configuration
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-configuration
+                port: 
+                  number: 80  
 ---
 # Source: SandBox/charts/dips-ehr-images/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-images
@@ -997,12 +1003,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-images
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-images
+                port: 
+                  number: 80
 ---
 # Source: SandBox/charts/dips-ehr-notes/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-notes
@@ -1027,12 +1036,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-notes
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-notes
+                port: 
+                  number: 80
 ---
 # Source: SandBox/charts/dips-ehr-notes-session-api/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-notes-session-api
@@ -1061,12 +1073,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-notes-session-api
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-notes-session-api
+                port: 
+                  number: 80
 ---
 # Source: SandBox/charts/dips-ehr-pdf/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-pdf
@@ -1091,12 +1106,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-pdf
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-pdf
+                port: 
+                  number: 80
 ---
 # Source: SandBox/charts/dips-ehr-security/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-ehr-security
@@ -1121,12 +1139,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-ehr-security
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-ehr-security
+                port: 
+                  number: 80    
 ---
 # Source: SandBox/charts/dips-fhir-service2/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-dips-fhir-service2
@@ -1151,12 +1172,15 @@ spec:
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-dips-fhir-service2
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-dips-fhir-service2
+                port: 
+                  number: 80  
 ---
 # Source: SandBox/charts/nav-pleiepenger/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: RELEASE-NAME-nav-pleiepenger
@@ -1175,12 +1199,15 @@ spec:
   tls:
     - hosts:
         - "RELEASE-NAME.nav-pleiepenger.DOMAIN"
-      secretName: nav-pleiepenger-sandbox-tls
+      secretName: nav-pleiepenger-sandbox-tls     
   rules:
     - host: "RELEASE-NAME.nav-pleiepenger.DOMAIN"
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: RELEASE-NAME-nav-pleiepenger
-              servicePort: 80
+              service:
+                name: RELEASE-NAME-nav-pleiepenger
+                port: 
+                  number: 80  

@@ -1,8 +1,8 @@
 {
     "settings":             
     {
-        "FhirServiceUri": "https://RELEASE-NAME.dips.fhir.service.DOMAIN",
-        "SecurityServiceUri": "https://RELEASE-NAME.dips-ehr-security.DOMAIN",
+        "FhirServiceUri": "https://fhir.dips.fhir.service.DOMAIN",
+        "SecurityServiceUri": "https://security.dips-ehr-security.DOMAIN",
         "SmartOnFhirApps": 
         [
             {"context": "patient", "name": "Growth Chart FHIR", "url": "https://examples.smarthealthit.org/growth-chart-app/launch.html"},

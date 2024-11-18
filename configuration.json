@@ -1,7 +1,7 @@
 {
     "settings":             
     {
-        "FhirServiceUri": "https://fhir.dips.fhir.service.DOMAIN",
+        "FhirServiceUri": "https://thor.dips.fhir.service.stenbaek.no",
         "SecurityServiceUri": "https://security.dips-ehr-security.DOMAIN",
         "SmartOnFhirApps": 
         [
